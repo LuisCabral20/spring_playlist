@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<meta charset="UTF-8">
+<title>Add new song</title>
+</head>
+<body>
+	<div>
+		<form th:object="${newSong}" th:action="@{/update/{id}(id=${newSong.id})}" method=POST>
+		<h1>Song Information</h1>
+			<label>Name:  			<input name="songName" 		size ="20" 		th:field="*{songName}"></label> <br />
+			<label>Artist:  		<input name="artist" 		size ="20"   	th:field="*{artist}"></label> <br />
+			<label>Release Year: 	<input name="releaseYear" 	size ="20"      th:field="*{releaseYear}"></label> <br />
+			<label>Duration:		<input name="duration" 		size ="20"		th:field="*{duration}"></label><br />
+			<input name="submit" type="submit" value="Submit" class="btn" />
+			<a href="/viewAll" class="btn">View all songs</a>
+		</form>
+	</div>
+</body>
+</html>
